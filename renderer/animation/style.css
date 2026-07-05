@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.rig-wrapper {
+  position: absolute;
+  top: var(--top-pos, 60px);
+  left: -650px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.rig-wrapper.drive-in {
+  animation: driveIn 2.2s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes driveIn {
+  0% {
+    left: -650px;
+  }
+  85% {
+    left: calc(var(--target-x, 800px) + 10px);
+  }
+  100% {
+    left: var(--target-x, 800px);
+  }
+}
+
+.car-part {
+  display: flex;
+  align-items: flex-end;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.rig-wrapper.detach .car-part {
+  animation: driveOff 1s ease-in forwards;
+}
+
+@keyframes driveOff {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(600px);
+    opacity: 0;
+  }
+}
+
+.wheel {
+  transform-origin: center;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.list-svg {
+  transform: translateY(-6px);
+}
+
+.rope-svg {
+  transform: translateY(-40px);
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="calendar-panel">
+      <div class="cal-header">
+        <button id="prevBtn" class="nav-btn">‹</button>
+        <h1 id="monthLabel"></h1>
+        <button id="nextBtn" class="nav-btn">›</button>
+        <button id="todayBtn" class="today-btn">Today</button>
+      </div>
+      <div class="weekday-row">
+        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+      </div>
+      <div id="grid" class="grid"></div>
+    </div>
+
+    <div class="day-panel">
+      <h2 id="dayPanelTitle">Select a day</h2>
+
+      <div class="add-row" id="dayAddRow" style="display:none;">
+        <input id="dpText" type="text" placeholder="Add a todo..." maxlength="120" />
+        <div class="add-row-controls">
+          <input id="dpDue" type="date" title="Due date" />
+          <div class="priority-picker" id="dpPriorityPicker">
+            <button class="prio-swatch prio-low" data-priority="low"></button>
+            <button class="prio-swatch prio-medium selected" data-priority="medium"></button>
+            <button class="prio-swatch prio-high" data-priority="high"></button>
+          </div>
+          <button id="dpAddBtn">+</button>
+        </div>
+      </div>
+
+      <ul id="dayTodoList" class="todo-list"></ul>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

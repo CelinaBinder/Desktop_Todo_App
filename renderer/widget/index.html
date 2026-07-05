@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Today's Todos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="widget">
+    <div class="header" id="dragHeader">
+      <span class="title">Today</span>
+      <div class="header-actions">
+        <button id="settingsBtn" class="icon-btn" title="Customize colors">⚙</button>
+        <button id="closeBtn" class="icon-btn close-btn" title="Quit app">×</button>
+      </div>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel">
+      <div class="settings-row">
+        <span class="settings-label">Accent color</span>
+        <div class="swatch-group" id="accentSwatches" data-target="accentColor">
+          <button class="color-swatch" data-color="#3a5bd9" style="background:#3a5bd9"></button>
+          <button class="color-swatch" data-color="#0f9d8c" style="background:#0f9d8c"></button>
+          <button class="color-swatch" data-color="#7c4dff" style="background:#7c4dff"></button>
+          <button class="color-swatch" data-color="#e85d75" style="background:#e85d75"></button>
+          <button class="color-swatch" data-color="#e08e2e" style="background:#e08e2e"></button>
+          <button class="color-swatch" data-color="#334155" style="background:#334155"></button>
+        </div>
+      </div>
+      <div class="settings-row">
+        <span class="settings-label">Car color</span>
+        <div class="swatch-group" id="carSwatches" data-target="carColor">
+          <button class="color-swatch" data-color="#3a5bd9" style="background:#3a5bd9"></button>
+          <button class="color-swatch" data-color="#0f9d8c" style="background:#0f9d8c"></button>
+          <button class="color-swatch" data-color="#e85d75" style="background:#e85d75"></button>
+          <button class="color-swatch" data-color="#e08e2e" style="background:#e08e2e"></button>
+          <button class="color-swatch" data-color="#7c4dff" style="background:#7c4dff"></button>
+          <button class="color-swatch" data-color="#334155" style="background:#334155"></button>
+        </div>
+      </div>
+      <div class="settings-hint">Car color applies next time the startup animation plays.</div>
+    </div>
+
+    <div class="add-row">
+      <input id="newTodoText" type="text" placeholder="Add a todo..." maxlength="120" />
+      <div class="add-row-controls">
+        <input id="newTodoDue" type="date" title="Due date" />
+        <div class="priority-picker">
+          <button class="prio-swatch prio-low" data-priority="low" title="Low priority"></button>
+          <button class="prio-swatch prio-medium selected" data-priority="medium" title="Medium priority"></button>
+          <button class="prio-swatch prio-high" data-priority="high" title="High priority"></button>
+        </div>
+        <button id="addBtn" title="Add todo">+</button>
+      </div>
+    </div>
+
+    <ul id="todoList" class="todo-list"></ul>
+
+    <div class="footer" id="footerHint">
+      Double-click the list to open the calendar
+    </div>
+
+    <div class="resize-handle" id="resizeHandle"></div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
